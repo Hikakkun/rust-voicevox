@@ -47,18 +47,6 @@
     ```bash
     /rust-voicevox >  ln -s /usr/local/lib/voicevox_core ./voicevox_core 
     ```
-    * シンボリックリンクを作らない場合のエラー内容
-        * よりいい解決方法があるかもしれませんがわかりませんでした...
-    ```bash
-    /rust-voicevox > cargo build                                                            
-       Compiling rust-voicevox v0.1.0 (/rust-voicevox)
-    error: linking with `cc` failed: exit status: 1
-      |
-      = note: LC_ALL="C" PATH="...省略..."
-      = note: /usr/bin/ld: cannot find -lvoicevox_core: No such file or directory
-              collect2: error: ld returned 1 exit status
-    error: could not compile `rust-voicevox` (bin "rust-voicevox") due to previous error    
-    ```
 4. プログラムでOpen JTalk 辞書ディレクトリを呼び出す部分をフルパスに変更
     * プログラムは動画[^1]から引用
     ```Rust:src/main.rs
@@ -77,20 +65,6 @@
         let mut file = std::fs::File::create("./audio.wav").unwrap();
         file.write_all(&wav.as_slice()).unwrap();
     }
-    ```
-    * dir をフルパスにしないと以下のようなエラーが発生
-    ```bash
-     /rust-voicevox > cargo run
-        Finished dev [unoptimized + debuginfo] target(s) in 0.00s
-         Running `target/debug/rust-voicevox`
-    ERROR: Mecab_load() in mecab.cpp: Cannot open open_jtalk_dic_utf_8-1.11.
-    Error(Display): OpenJTalkの辞書が読み込まれていません
-    Error(Debug): RustApi(
-        NotLoadedOpenjtalkDict,
-    )
-    thread 'main' panicked at src/main.rs:7:95:
-    called `Result::unwrap()` on an `Err` value: NotLoadedOpenjtalkDictError
-    note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace   
     ```
 
 ## 引用元
