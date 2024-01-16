@@ -10,6 +10,6 @@ fn main() {
     let speaker: u32 = 1;
     let wav = vvc.tts_simple(text, speaker).unwrap();
 
-    let mut file = std::fs::File::create("/home/hikaru/prog/hello-voicevox/audio.wav").unwrap();
+    let mut file = std::fs::File::create("./audio.wav").unwrap();
     file.write_all(&wav.as_slice()).unwrap();
 }
