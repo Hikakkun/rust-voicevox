@@ -1,7 +1,7 @@
 # RustでVOICEVOXを動かす
 * このコードをcloneしても動きません
 * もっと簡単に動かしたい場合はこの動画[^1]を参考にするのが楽です
-* [Qiita]()にも記事を作りました
+* [Qiita](https://qiita.com/Hikakkun/items/ef76edd1efd96f8f2c22)にも記事を作りました
 
 ## 開発環境
 * Ubuntu 22.04.3 LTS(Windows11 WSL2)
